@@ -143,6 +143,7 @@ button {
 }
 
 .todo__task {
+  flex-grow: 1;
   width: 226px;
   padding-left: 10px;
   font-size: 18px;
