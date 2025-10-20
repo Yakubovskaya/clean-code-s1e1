@@ -15,38 +15,35 @@ const completedTasksHolder=document.querySelector(".todo__list_complete");//comp
 
 
 //New task list item
-var createNewTaskElement=function(taskString){
+const createNewTaskElement=function(taskString){
 
-    var listItem=document.createElement("li");
-
+    const listItem=document.createElement("li");
+    listItem.className = "todo__item";
     //input (checkbox)
     var checkBox=document.createElement("input");//checkbx
+    checkBox.type = "checkbox";
+    checkBox.className = "todo__checkbox";
     //label
     var label=document.createElement("label");//label
+    label.className = "todo__task";
+    label.innerText = taskString;
     //input (text)
     var editInput=document.createElement("input");//text
+    editInput.type = "text";
+    editInput.className = "todo__task-input";
+    editInput.value = taskString;
     //button.edit
     var editButton=document.createElement("button");//edit button
-
+    editButton.className = "button todo__edit-btn";
+    editButton.innerText = "Edit";
     //button.delete
     var deleteButton=document.createElement("button");//delete button
+    deleteButton.className = "button todo__delete-btn";
     var deleteButtonImg=document.createElement("img");//delete button image
-
-    label.innerText=taskString;
-    label.className='task';
-
-    //Each elements, needs appending
-    checkBox.type="checkbox";
-    editInput.type="text";
-    editInput.className="task";
-
-    editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
-    editButton.className="edit";
-
-    deleteButton.className="delete";
-    deleteButtonImg.src='./remove.svg';
+    deleteButtonImg.className = "todo__delete-icon";
+    deleteButtonImg.src = './remove.svg';
+    deleteButtonImg.alt = "Delete";
     deleteButton.appendChild(deleteButtonImg);
-
 
     //and appending.
     listItem.appendChild(checkBox);
@@ -54,6 +51,7 @@ var createNewTaskElement=function(taskString){
     listItem.appendChild(editInput);
     listItem.appendChild(editButton);
     listItem.appendChild(deleteButton);
+
     return listItem;
 }
 
