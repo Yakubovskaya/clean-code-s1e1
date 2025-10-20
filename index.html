@@ -23,9 +23,9 @@
       <section class="todo">
         <h2 class="visually-hidden">Todo List</h2>
         <div class="todo__input-wrapper">
-          <label class="todo__title todo__title-label" for="new-task">Add Item</label>
+          <h3 id="add-task-title" class="todo__title todo__title-label">Add Item</h3>
           <div class="todo__input-field">
-            <input id="new-task" class="todo__task-input todo__task-input_add-mode" type="text">
+            <input id="new-task" class="todo__task-input todo__task-input_add-mode" type="text" aria-labelledby="add-task-title">
             <button class="button todo__add-btn">Add</button>
           </div>
         </div>
