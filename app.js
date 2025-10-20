@@ -57,7 +57,7 @@ const createNewTaskElement=function(taskString){
 
 
 
-var addTask=function(){
+const addTask=function(){
     console.log("Add Task...");
     //Create a new list item with the text from the #new-task:
     if (!taskInput.value) return;
@@ -66,38 +66,45 @@ var addTask=function(){
     //Append listItem to incompleteTaskHolder
     incompleteTaskHolder.appendChild(listItem);
     bindTaskEvents(listItem, taskCompleted);
-
-    taskInput.value="";
+    
+    taskInput.value = "";
 
 }
 
 //Edit an existing task.
 
-var editTask=function(){
+const editTask=function(){
     console.log("Edit Task...");
     console.log("Change 'edit' to 'save'");
 
+    const listItem=this.parentNode;
 
-    var listItem=this.parentNode;
-
-    var editInput=listItem.querySelector('input[type=text]');
-    var label=listItem.querySelector("label");
-    var editBtn=listItem.querySelector(".edit");
-    var containsClass=listItem.classList.contains("editMode");
+    const editInput=listItem.querySelector('.todo__task-input');
+    const label=listItem.querySelector(".todo__task");
+    const editBtn=listItem.querySelector(".todo__edit-btn");
+    const containsClass=listItem.classList.contains("todo__item_edit-mode");
     //If class of the parent is .editmode
     if(containsClass){
 
         //switch to .editmode
         //label becomes the inputs value.
-        label.innerText=editInput.value;
-        editBtn.innerText="Edit";
+    	label.innerText = editInput.value;
+    	label.classList.remove("todo__task_edit-mode");
+    	editInput.classList.remove("todo__task-input_edit-mode");
+    	editInput.style.display = "none";
+    	label.style.display = "block";
+    	editBtn.innerText = "Edit";
     }else{
-        editInput.value=label.innerText;
-        editBtn.innerText="Save";
+        editInput.value = label.innerText;
+        label.classList.add("todo__task_edit-mode");
+        editInput.classList.add("todo__task-input_edit-mode");
+        editInput.style.display = "inline-block";
+        label.style.display = "none";
+        editBtn.innerText = "Save";
     }
 
     //toggle .editmode on the parent.
-    listItem.classList.toggle("editMode");
+    listItem.classList.toggle("todo__item_edit-mode");
 };
 
 
@@ -146,15 +153,15 @@ var ajaxRequest=function(){
 
 //Set the click handler to the addTask function.
 addButton.addEventListener("click",addTask);
-addButton.addEventListener("click",ajaxRequest);
+// addButton.addEventListener("click",ajaxRequest);
 
 
 var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
     console.log("bind list item events");
 //select ListItems children
-    var checkBox=taskListItem.querySelector("input[type=checkbox]");
-    var editButton=taskListItem.querySelector("button.edit");
-    var deleteButton=taskListItem.querySelector("button.delete");
+    var checkBox=taskListItem.querySelector(".todo__checkbox");
+    var editButton=taskListItem.querySelector(".todo__edit-btn");
+    var deleteButton=taskListItem.querySelector(".todo__delete-btn");
 
 
     //Bind editTask to edit button.
