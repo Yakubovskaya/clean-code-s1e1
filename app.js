@@ -3,8 +3,6 @@ const addButton = document.querySelector(".todo__add-btn");
 const incompleteTaskHolder = document.querySelector(".todo__list_incomplete");
 const completedTasksHolder = document.querySelector(".todo__list_complete");
 
-
-
 const createNewTaskElement = function(taskString) {
 
   const listItem = document.createElement("li");
@@ -45,8 +43,6 @@ const createNewTaskElement = function(taskString) {
   return listItem;
 }
 
-
-
 const addTask = function() {
   console.log("Add Task...");
   if (!taskInput.value) return;
@@ -57,8 +53,6 @@ const addTask = function() {
   
   taskInput.value = "";
 }
-
-
 
 const editTask = function() {
   console.log("Edit Task...");
@@ -98,8 +92,6 @@ const deleteTask = function() {
   ul.removeChild(listItem);
 }
 
-
-
 const taskCompleted = function() {
   console.log("Complete Task...");
 
@@ -115,7 +107,6 @@ const taskCompleted = function() {
 
 }
 
-
 const taskIncomplete = function() {
   console.log("Incomplete Task...");
 
@@ -128,15 +119,12 @@ const taskIncomplete = function() {
   bindTaskEvents(listItem, taskCompleted);
 }
 
-
-
 const ajaxRequest = function() {
   console.log("AJAX Request");
 }
 
 addButton.addEventListener("click", addTask);
 addButton.addEventListener("click", ajaxRequest);
-
 
 const bindTaskEvents = function(taskListItem, checkBoxEventHandler) {
   console.log("bind list item events");
@@ -152,11 +140,9 @@ const bindTaskEvents = function(taskListItem, checkBoxEventHandler) {
   checkBox.onchange = checkBoxEventHandler;
 }
 
-
 for (let i = 0; i < incompleteTaskHolder.children.length; i++) {
   bindTaskEvents(incompleteTaskHolder.children[i], taskCompleted);
 }
-
 
 for (let i = 0; i < completedTasksHolder.children.length; i++){
   bindTaskEvents(completedTasksHolder.children[i], taskIncomplete);
