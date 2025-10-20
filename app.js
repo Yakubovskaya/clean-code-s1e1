@@ -44,7 +44,6 @@ const createNewTaskElement = function(taskString) {
 }
 
 const addTask = function() {
-  console.log("Add Task...");
   if (!taskInput.value) return;
   const listItem = createNewTaskElement(taskInput.value);
 
@@ -55,8 +54,7 @@ const addTask = function() {
 }
 
 const editTask = function() {
-  console.log("Edit Task...");
-  console.log("Change 'edit' to 'save'");
+  
 
   const listItem = this.parentNode;
 
@@ -84,7 +82,7 @@ const editTask = function() {
 };
 
 const deleteTask = function() {
-  console.log("Delete Task...");
+  
 
   const listItem = this.parentNode;
   const ul = listItem.parentNode;
@@ -93,7 +91,7 @@ const deleteTask = function() {
 }
 
 const taskCompleted = function() {
-  console.log("Complete Task...");
+  
 
   const listItem = this.parentNode;
 
@@ -108,7 +106,7 @@ const taskCompleted = function() {
 }
 
 const taskIncomplete = function() {
-  console.log("Incomplete Task...");
+  
 
   const listItem = this.parentNode;
 	const label = listItem.querySelector(".todo__task");
@@ -119,15 +117,10 @@ const taskIncomplete = function() {
   bindTaskEvents(listItem, taskCompleted);
 }
 
-const ajaxRequest = function() {
-  console.log("AJAX Request");
-}
-
 addButton.addEventListener("click", addTask);
-addButton.addEventListener("click", ajaxRequest);
 
 const bindTaskEvents = function(taskListItem, checkBoxEventHandler) {
-  console.log("bind list item events");
+  
 
   const checkBox = taskListItem.querySelector(".todo__checkbox");
   const editButton = taskListItem.querySelector(".todo__edit-btn");
