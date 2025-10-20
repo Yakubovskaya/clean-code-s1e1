@@ -109,11 +109,11 @@ const editTask=function(){
 
 
 //Delete task.
-var deleteTask=function(){
+const deleteTask=function(){
     console.log("Delete Task...");
 
-    var listItem=this.parentNode;
-    var ul=listItem.parentNode;
+    const listItem=this.parentNode;
+    const ul=listItem.parentNode;
     //Remove the parent list item from the ul.
     ul.removeChild(listItem);
 
@@ -121,23 +121,33 @@ var deleteTask=function(){
 
 
 //Mark task completed
-var taskCompleted=function(){
+const taskCompleted=function(){
     console.log("Complete Task...");
 
     //Append the task list item to the #completed-tasks
     var listItem=this.parentNode;
+
+	const label=listItem.querySelector(".todo__task");
+
+	listItem.classList.add("todo__item_done");
+	label.classList.add("todo__task_line-through");
+
     completedTasksHolder.appendChild(listItem);
     bindTaskEvents(listItem, taskIncomplete);
 
 }
 
 
-var taskIncomplete=function(){
+const taskIncomplete=function(){
     console.log("Incomplete Task...");
 //Mark task as incomplete.
     //When the checkbox is unchecked
     //Append the task list item to the #incompleteTasks.
-    var listItem=this.parentNode;
+    const listItem=this.parentNode;
+	const label=listItem.querySelector(".todo__task");
+
+	label.classList.remove("todo__task_line-through");
+	
     incompleteTaskHolder.appendChild(listItem);
     bindTaskEvents(listItem,taskCompleted);
 }
