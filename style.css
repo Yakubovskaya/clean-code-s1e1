@@ -1,0 +1,177 @@
+/* Basic Style */
+.body {
+  font-family: Lato, sans-serif;
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.matrix-info {
+  display: block;
+  width: 500px;
+  margin: 0 auto;
+  text-align: right;
+}
+
+.matrix-info__image {
+  width: 100%;
+}
+
+.matrix-info__link {
+  font-family: fantasy, cursive;
+}
+
+@media (max-width:768px) {
+  .matrix-info { 
+    text-align: center;
+  }
+}
+
+.todo {
+  display: block;
+  width: 500px;
+  margin: 0 auto 0;
+}
+
+.todo__input-field {
+  display: flex;
+}
+
+.todo__list {
+  margin: 0;
+  padding: 0px;
+}
+
+li, 
+h3 {
+  list-style: none;
+}
+
+input,
+button {
+  outline: none;
+}
+
+.button {
+  width: 60px;
+  font-family: Lato, sans-serif;
+  font-size: 15px;
+  color: #888;
+  background: none;
+  border: 0px;
+  cursor: pointer;
+}
+
+.button:hover {
+  color: #3a3A3a;
+}
+
+/* Heading */
+.todo__title {
+  margin: 0;
+  padding: 30px 0 10px;
+  font-weight: 700;
+  font-size: 15px;
+  color: #333;
+  border-bottom: 2px solid #333;
+  text-transform: uppercase;
+}
+
+.todo__task-input {
+  display: none;
+  flex-grow: 1;
+  width: 226px;
+  height: 21px;
+  margin: 0;
+  padding: 0 9px;
+  font-family: Lato, sans-serif;
+  font-size: 18px;
+  line-height: 18px;
+  color: #888;
+  background: #fff;
+  border: 1px solid #dDd;
+  border-radius: 6px;
+}
+
+.todo__task-input_add-mode {
+  display: block;
+  width: 318px;
+}
+
+.todo__task-input:focus {
+  color: #333;
+}
+
+/* New Task */
+.todo__title-label {
+  display: block;
+  margin: 0 0 20px;
+}
+
+/* Task list */
+.todo__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+  overflow: hidden;
+}
+
+.todo__checkbox,
+.todo__task,
+.todo__task-input,
+.todo__edit-btn,
+.todo__delete-btn {
+  vertical-align: middle;
+}
+
+.todo__checkbox {
+  margin: 0 10px;
+}
+
+.todo__task {
+  flex-grow: 1;
+  width: 226px;
+  padding-left: 10px;
+  font-size: 18px;
+  box-sizing: border-box;
+}
+
+.todo__delete-icon {
+  height: 2em;
+  transform: rotateZ(45deg);
+  transition: transform 200ms ease-in;
+}
+
+.todo__delete-icon:hover {
+  transform: rotateZ(0);
+}
+
+/* Completed */
+.todo__task_line-through {
+  color: #888;
+  text-decoration: line-through;
+}
+
+/* Edit Task */
+.todo__task-input_edit-mode {
+  display: inline-block;
+  width: 224px;
+}
+
+.todo__task_edit-mode {
+  display: none;
+}
