@@ -4,7 +4,6 @@ const incompleteTaskHolder = document.querySelector(".todo__list_incomplete");
 const completedTasksHolder = document.querySelector(".todo__list_complete");
 
 const createNewTaskElement = function(taskString) {
-
   const listItem = document.createElement("li");
   listItem.className = "todo__item";
 
@@ -33,7 +32,6 @@ const createNewTaskElement = function(taskString) {
   deleteButtonImg.alt = "Delete";
   deleteButton.appendChild(deleteButtonImg);
 
-
   listItem.appendChild(checkBox);
   listItem.appendChild(label);
   listItem.appendChild(editInput);
@@ -45,6 +43,7 @@ const createNewTaskElement = function(taskString) {
 
 const addTask = function() {
   if (!taskInput.value) return;
+
   const listItem = createNewTaskElement(taskInput.value);
 
   incompleteTaskHolder.appendChild(listItem);
@@ -54,10 +53,7 @@ const addTask = function() {
 }
 
 const editTask = function() {
-  
-
   const listItem = this.parentNode;
-
   const editInput = listItem.querySelector('.todo__task-input');
   const label = listItem.querySelector(".todo__task");
   const editBtn = listItem.querySelector(".todo__edit-btn");
@@ -82,8 +78,6 @@ const editTask = function() {
 };
 
 const deleteTask = function() {
-  
-
   const listItem = this.parentNode;
   const ul = listItem.parentNode;
 
@@ -91,10 +85,7 @@ const deleteTask = function() {
 }
 
 const taskCompleted = function() {
-  
-
   const listItem = this.parentNode;
-
 	const label = listItem.querySelector(".todo__task");
 
 	listItem.classList.add("todo__item_done");
@@ -102,12 +93,9 @@ const taskCompleted = function() {
 
   completedTasksHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskIncomplete);
-
 }
 
 const taskIncomplete = function() {
-  
-
   const listItem = this.parentNode;
 	const label = listItem.querySelector(".todo__task");
 
@@ -120,8 +108,6 @@ const taskIncomplete = function() {
 addButton.addEventListener("click", addTask);
 
 const bindTaskEvents = function(taskListItem, checkBoxEventHandler) {
-  
-
   const checkBox = taskListItem.querySelector(".todo__checkbox");
   const editButton = taskListItem.querySelector(".todo__edit-btn");
   const deleteButton = taskListItem.querySelector(".todo__delete-btn");
